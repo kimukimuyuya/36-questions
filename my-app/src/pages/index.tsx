@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Home = () => {
   return (
@@ -15,12 +16,12 @@ const Home = () => {
         </p>
 
         <div className="mt-6">
-          <a
+          <Link
             href="/questions/1"
             className="px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
           >
             始める
-          </a>
+          </Link>
         </div>
       </main>
 
