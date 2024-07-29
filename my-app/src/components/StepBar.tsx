@@ -17,7 +17,7 @@ const StepBar = ({ QuestionLevel }: { QuestionLevel: string }) => {
               {/* 円 */}
               <div
                 className={`number ${currentLevel >= level.number ? 'active bg-red-700 text-white' : 'bg-white text-gray-500'} transition 
-                duration-500 w-8 h-8 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-1 sm:mb-2 font-bold z-10`}
+                duration-500 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-1 sm:mb-2 font-bold z-10`}
                 style={{
                   transitionDelay: `${index * 0.2}s`
                 }}
@@ -28,7 +28,7 @@ const StepBar = ({ QuestionLevel }: { QuestionLevel: string }) => {
               {/* 線 */}
               {index < levels.length - 1 && (
                 <div
-                  className={`line absolute top-1/2 transform -translate-y-1/2 h-0.5 sm:h-1.5 ${currentLevel > level.number ? 'line-active bg-red-700' : 'bg-gray-500'} transition-all duration-500`}
+                  className={`line absolute top-1/2 transform -translate-y-1/2 h-1 sm:h-1.5 ${currentLevel > level.number ? 'line-active bg-red-700' : 'bg-gray-500'} transition-all duration-500`}
                   style={{
                     width: currentLevel > level.number ? '200%' : '0',
                     left: '2rem',
@@ -39,7 +39,7 @@ const StepBar = ({ QuestionLevel }: { QuestionLevel: string }) => {
               )}
               
             </div>
-            <div className="text text-sm sm:text-lg">{level.text}</div>
+            <div className="text text-base sm:text-lg">{level.text}</div>
           </li>
         ))}
       </ul>
