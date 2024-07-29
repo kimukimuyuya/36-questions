@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 
 
 const getRandomQuestion = (questions: string[]) => {
+  // TODO: 重複しないようにする
   return questions[Math.floor(Math.random() * questions.length)];
 };
 
@@ -35,8 +36,12 @@ const QuestionPage = () => {
   const [usedQuestions, setUsedQuestions] = useState<string[]>([]);
 
   useEffect(() => {
-    setCurrentQuestion(getRandomQuestion(questions));
-  }, [questionLevel, questions]);
+    if (Number(questionLevel) > 3) {
+      router.push('/questionnaire');
+    } else {
+      setCurrentQuestion(getRandomQuestion(questions));
+    }
+  }, [questionLevel, questions, router]);
 
   const handleChangeQuestion = () => {
     setCurrentQuestion(getRandomQuestion(questions));
@@ -44,9 +49,9 @@ const QuestionPage = () => {
   };
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen bg-bgColor'>
       <Header />
-      <main className="flex flex-col items-center p-4 bg-bgColor">
+      <main className="flex flex-col items-center p-4">
         <ProgressBar QuestionLevel={questionLevel} />
         <QuestionCard question={currentQuestion} />
         <div className='flex items-center justify-around w-full mt-4'>
