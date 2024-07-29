@@ -44,9 +44,9 @@ const QuestionPage = () => {
   };
 
   return (
-    <div>
+    <div className='min-h-screen'>
       <Header />
-      <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-bgColor">
+      <main className="flex flex-col items-center p-4 bg-bgColor">
         <ProgressBar QuestionLevel={questionLevel} />
         <QuestionCard question={currentQuestion} />
         <div className='flex items-center justify-around w-full mt-4'>
