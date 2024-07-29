@@ -7,7 +7,7 @@ const StepBar = ({ QuestionLevel }: { QuestionLevel: string }) => {
     { number: 2, text: 'level2', color: 'bg-red-600' },
     { number: 3, text: 'level3', color: 'bg-red-700' },
   ];
-
+  // TODO: コンポーネントの分割
   return (
     <div className="text-white text-base mt-10 sm:mt-20 uppercase">
       <ul className="flex justify-center space-x-10 sm:space-x-20">
