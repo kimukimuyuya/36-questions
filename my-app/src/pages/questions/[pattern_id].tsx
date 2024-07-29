@@ -3,9 +3,10 @@ import { questionsPattern1, questionsPattern2, questionsPattern3 } from '../../d
 import QuestionCard from '../../components/QuestionCard';
 import QuestionChangeButton from '../../components/QuestionChangeButton';
 import QuestionNextButton from '../../components/QuestionNextButton';
+import ProgressBar from '@/components/ProgressBar';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 
 const getRandomQuestion = (questions: string[]) => {
   return questions[Math.floor(Math.random() * questions.length)];
@@ -13,8 +14,7 @@ const getRandomQuestion = (questions: string[]) => {
 
 const PatternPage = () => {
   const router = useRouter();
-  const { pattern_id } = router.query;
-
+  const pattern_id: string = router.query.pattern_id as string;
   const getQuestions = (id: string) => {
     switch (id) {
       case '1':
@@ -48,6 +48,7 @@ const PatternPage = () => {
     <div>
       <Header />
       <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-bgColor">
+        <ProgressBar level={pattern_id} />
         <QuestionCard question={currentQuestion} />
         <div className='flex items-center justify-around w-full mt-4'>
           <QuestionChangeButton onClick={handleChangeQuestion} />
