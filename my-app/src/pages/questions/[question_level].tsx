@@ -51,13 +51,15 @@ const QuestionPage = () => {
     <div className='min-h-screen bg-bgColor'>
       <Header />
       <main className="flex flex-col items-center p-4">
-        <div className='mb-24'>
+        <div className='mb-20 sm:mb-24'>
           <StepBar QuestionLevel={questionLevel} />
         </div>
-        <QuestionCard question={currentQuestion} />
-        <div className='flex items-center justify-around w-full mt-12'>
-          <QuestionChangeButton onClick={handleChangeQuestion} />
-          <QuestionNextButton nextQuestionLevel={nextQuestionLevel} />
+        <div className='relative md:w-4/6'>
+          <QuestionCard question={currentQuestion} />
+          <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
+            <QuestionChangeButton onClick={handleChangeQuestion} />
+            <QuestionNextButton nextQuestionLevel={nextQuestionLevel} />
+          </div>
         </div>
       </main>
     </div>
