@@ -32,7 +32,6 @@ function getFittedTextWithinWidth(text: string, rectWidth: number) {
 const QuestionCard = ({ question }: { question: string }) => {
   const questionText = 'Q. ' + question;
   const splitQuestion = splitIntoRectWidth(questionText);
-  console.log(splitQuestion);
 
   return (
     <div className="p-6 shadow-md" 
