@@ -52,9 +52,11 @@ const QuestionPage = () => {
     <div className='min-h-screen bg-bgColor'>
       <Header />
       <main className="flex flex-col items-center p-4">
-        <ProgressBar QuestionLevel={questionLevel} />
+        <div className='mb-24'>
+          <ProgressBar QuestionLevel={questionLevel} />
+        </div>
         <QuestionCard question={currentQuestion} />
-        <div className='flex items-center justify-around w-full mt-4'>
+        <div className='flex items-center justify-around w-full mt-12'>
           <QuestionChangeButton onClick={handleChangeQuestion} />
           <QuestionNextButton nextQuestionLevel={nextQuestionLevel} />
         </div>
