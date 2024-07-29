@@ -54,7 +54,7 @@ const QuestionPage = () => {
         <div className='mb-20 sm:mb-24'>
           <StepBar QuestionLevel={questionLevel} />
         </div>
-        <div className='relative md:w-4/6'>
+        <div className='relative md:w-4/6 w-full'>
           <QuestionCard question={currentQuestion} />
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <QuestionChangeButton onClick={handleChangeQuestion} />
