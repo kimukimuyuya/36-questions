@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { questionsPattern1, questionsPattern2, questionsPattern3 } from '../../data/questions';
 import QuestionCard from '../../components/QuestionCard';
 import QuestionChangeButton from '../../components/QuestionChangeButton';
+import QuestionNextButton from '../../components/QuestionNextButton';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -46,13 +47,11 @@ const PatternPage = () => {
   return (
     <div>
       <Header />
-      <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-bgColor">
         <QuestionCard question={currentQuestion} />
-        <QuestionChangeButton onClick={handleChangeQuestion} />
-        <div className="mt-4">
-          <Link href={`/questions/${nextPatternId}`} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-            次へ
-          </Link>
+        <div className='flex items-center justify-around w-full mt-4'>
+          <QuestionChangeButton onClick={handleChangeQuestion} />
+          <QuestionNextButton nextPatternId={nextPatternId} />
         </div>
       </main>
     </div>
