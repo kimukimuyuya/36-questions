@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-bgColor">
       <Head>
         <title>36の質問 - ランディングページ</title>
         <link rel="icon" href="/favicon.ico" />
@@ -18,7 +18,7 @@ const Home = () => {
         <div className="mt-6">
           <Link
             href="/questions/1"
-            className="px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+            className="px-8 py-3 text-lg font-medium text-white bg-red-700 rounded-md hover:bg-red-700"
           >
             始める
           </Link>
