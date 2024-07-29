@@ -3,10 +3,9 @@ import { questionsLevel1, questionsLevel2, questionsLevel3 } from '../../data/qu
 import QuestionCard from '../../components/QuestionCard';
 import QuestionChangeButton from '../../components/QuestionChangeButton';
 import QuestionNextButton from '../../components/QuestionNextButton';
-import ProgressBar from '@/components/ProgressBar';
+import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
-
 
 const getRandomQuestion = (questions: string[]) => {
   // TODO: 重複しないようにする
@@ -53,7 +52,7 @@ const QuestionPage = () => {
       <Header />
       <main className="flex flex-col items-center p-4">
         <div className='mb-24'>
-          <ProgressBar QuestionLevel={questionLevel} />
+          <StepBar QuestionLevel={questionLevel} />
         </div>
         <QuestionCard question={currentQuestion} />
         <div className='flex items-center justify-around w-full mt-12'>
