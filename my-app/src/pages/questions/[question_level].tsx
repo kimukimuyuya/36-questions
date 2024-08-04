@@ -3,6 +3,7 @@ import { questionsLevel1, questionsLevel2, questionsLevel3 } from '../../data/qu
 import QuestionCard from '../../components/QuestionCard';
 import QuestionChangeButton from '../../components/QuestionChangeButton';
 import QuestionNextButton from '../../components/QuestionNextButton';
+import QuestionBeforeButton from '../../components/QuestionBeforeButton';
 import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
@@ -16,6 +17,7 @@ const QuestionPage = () => {
   const router = useRouter();
   const questionLevel: string = router.query.question_level as string;
   const nextQuestionLevel = Number(questionLevel) + 1;
+  const beforeQuestionLevel = Number(questionLevel) - 1;
 
   const getQuestions = (id: string) => {
     switch (id) {
@@ -57,6 +59,7 @@ const QuestionPage = () => {
         <div className='relative md:w-4/6 w-full'>
           <QuestionCard question={currentQuestion} />
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
+            <QuestionBeforeButton beforeQuestionLevel={beforeQuestionLevel} />
             <QuestionChangeButton onClick={handleChangeQuestion} />
             <QuestionNextButton nextQuestionLevel={nextQuestionLevel} />
           </div>
