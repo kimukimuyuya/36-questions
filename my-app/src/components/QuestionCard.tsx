@@ -14,6 +14,7 @@ function splitIntoRectWidth(question: string, rectWidth: number) {
 
 function getFittedTextWithinWidth(text: string, rectWidth: number) {
   let chunk = "";
+  if (!process.browser) return;
   const ctx = document.createElement("canvas").getContext("2d");
   if (!ctx) return;
   ctx.font = "18px sans-jp";
