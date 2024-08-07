@@ -46,7 +46,7 @@ const QuestionCard = ({ question }: {question: string}) => {
 
   return (
     <div
-      className="p-6 shadow-md bg-cover bg-[url('/paper.jpg')]"
+      className="w-full h-full p-6 shadow-md bg-cover bg-[url('/paper.jpg')]"
     >
       {splitQuestion.map((text, index) => (
         <span
