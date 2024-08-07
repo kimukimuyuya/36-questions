@@ -6,7 +6,7 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
   const [reset, setReset] = useState(false);
 
   const handleClick = () => {
-    setOpened(!opened);
+    setOpened(true);
     setTimeout(() => {
       setReset(true);
     }, 1000);
@@ -14,7 +14,9 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
 
   return (
     <div
-      className={`shadow-md relative w-[300px] sm:w-[350px] transition-all duration-700 aspect-video flex items-center justify-center cursor-pointer`}
+      className={`shadow-md relative w-[300px] sm:w-[350px] transition-all duration-700 aspect-video flex items-center justify-center cursor-pointer
+      ${opened ? 'shadow-none' : 'shadow-md'}
+      `}
       onClick={handleClick}
     >
       <div
@@ -49,7 +51,7 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
           ${opened ? 'opacity-0 delay-1000' : ''}`}
       ></div>
       <div
-        className={`btm transition-all duration-700 absolute w-full h-full bg-[#ecdeb8] [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')]
+        className={`btm transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')]
           ${opened ? 'opacity-0 delay-1000' : ''}`}
       ></div>
     </div>
