@@ -11,7 +11,7 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
   return (
     <div className="card cursor-pointer" onClick={handleClick}>
       <div
-        className={`relative bg-black w-[300px] sm:w-[350px] transition-all duration-700 aspect-video flex items-center justify-center`}
+        className={`relative w-[300px] sm:w-[350px] transition-all duration-700 aspect-video flex items-center justify-center`}
       >
         <div
           className={`transition-all flex flex-col items-center py-5 justify-start duration-300 ${
@@ -27,20 +27,20 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
           SMKY
         </button>
         <div
-          className={`tp transition-all duration-1000 bg-neutral-800 absolute [clip-path:polygon(50%_50%,_100%_0,_0_0)] ${
+          className={`tp transition-all duration-1000 bg-[#e6cfa7] absolute [clip-path:polygon(50%_50%,_100%_0,_0_0)] w-full h-full bg-cover bg-[url('/pink_paper.jpg')] ${
             opened
               ? 'duration-100 [clip-path:polygon(50%_0%,_100%_0,_0_0)]'
               : ''
-          } w-full h-full`}
+          }`}
         ></div>
         <div
-          className={`lft transition-all duration-700 absolute w-full h-full bg-neutral-900 [clip-path:polygon(50%_50%,_0_0,_0_100%)]`}
+          className={`lft transition-all duration-700 absolute w-full h-full bg-[#ecdeb8] [clip-path:polygon(50%_50%,_0_0,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')]`}
         ></div>
         <div
-          className={`rgt transition-all duration-700 absolute w-full h-full bg-neutral-800 [clip-path:polygon(50%_50%,_100%_0,_100%_100%)]`}
+          className={`rgt transition-all duration-700 absolute w-full h-full bg-[#ecdeb8] [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] bg-cover bg-[url('/pink_paper.jpg')]`}
         ></div>
         <div
-          className={`btm transition-all duration-700 absolute w-full h-full bg-neutral-900 [clip-path:polygon(50%_50%,_100%_100%,_0_100%)]`}
+          className={`btm transition-all duration-700 absolute w-full h-full bg-[#ecdeb8] [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')]`}
         ></div>
       </div>
     </div>
