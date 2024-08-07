@@ -5,6 +5,7 @@ import QuestionChangeButton from '../../components/QuestionChangeButton';
 import QuestionNextButton from '../../components/QuestionNextButton';
 import QuestionBeforeButton from '../../components/QuestionBeforeButton';
 import Envelope from '@/components/Envelope';
+import Envelope2 from '@/components/Envelope_2';
 import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
@@ -61,8 +62,8 @@ const QuestionPage = () => {
           <StepBar QuestionLevel={questionLevel} />
         </div>
         <div className='relative md:w-4/6 w-full'>
-          <Envelope onClick={handleEnvelopeClick}/>
-          <QuestionCard question={currentQuestion} />
+          <Envelope2 />
+          {/* <QuestionCard question={currentQuestion} /> */}
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <QuestionBeforeButton beforeQuestionLevel={beforeQuestionLevel} />
             <QuestionChangeButton onClick={handleChangeQuestion} />
