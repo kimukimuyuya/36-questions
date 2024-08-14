@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuestionCard from './QuestionCard';
+import 'animate.css'
 
 const Envelope = ({ onClick }: { onClick: () => void }) => {
   const [opened, setOpened] = useState(false);
