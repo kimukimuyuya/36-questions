@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QuestionCard from './QuestionCard';
-import 'animate.css'
+import 'animate.css';
 
-const Envelope = ({ onClick }: { onClick: () => void }) => {
+const Envelope = ({ onClick, question }: { onClick: () => void, question: string }) => {
   const [opened, setOpened] = useState(false);
   const [reset, setReset] = useState(false);
 
@@ -26,7 +26,7 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
         ${ reset ? 'duration-0 translate-y-0' : ''}
         `}
       >
-        <QuestionCard question='あなたの好きなポケモンはなんですか？' />
+        <QuestionCard question={question} />
       </div>
       <button
         className={`seal bg-rose-500 text-red-800 w-10 aspect-square rounded-full z-40 text-[10px] flex items-center justify-center font-semibold [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)]${

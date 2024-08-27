@@ -35,25 +35,27 @@ const QuestionPage = () => {
 
   const questions = getQuestions(questionLevel as string);
   const [currentQuestion, setCurrentQuestion] = useState('');
-  const [usedQuestions, setUsedQuestions] = useState<string[]>([]);
+  const [showEnvelope, setShowEnvelope] = useState(true);
 
   useEffect(() => {
     if (Number(questionLevel) > 3) {
       // router.push('/questionnaire');
     } else if (Number(questionLevel) < 1) {
-      router.push('/')
+      router.push('/');
     } else {
-      setCurrentQuestion(getRandomQuestion(questions));
+      const question = getRandomQuestion(questions);
+      setCurrentQuestion(question);
+      setShowEnvelope(true); // Envelopeを表示
     }
   }, [questionLevel, questions, router]);
 
   const handleChangeQuestion = () => {
     setCurrentQuestion(getRandomQuestion(questions));
-    setUsedQuestions([...usedQuestions, currentQuestion]);
   };
 
   const handleEnvelopeClick = () => {
-  }
+    setShowEnvelope(false); // Envelopeクリック後に非表示
+  };
 
   return (
     <div className='min-h-screen bg-bgColor'>
@@ -63,7 +65,11 @@ const QuestionPage = () => {
           <StepBar QuestionLevel={questionLevel} />
         </div>
         <div className='relative md:w-4/6 w-full flex justify-center'>
-          <Envelope onClick={handleEnvelopeClick} />
+          {showEnvelope ? (
+            <Envelope onClick={handleEnvelopeClick} question={currentQuestion} />
+          ) : (
+            <QuestionCard question={currentQuestion} />
+          )}
           {/* <QuestionCard question={currentQuestion} /> */}
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <QuestionBeforeButton beforeQuestionLevel={beforeQuestionLevel} />
