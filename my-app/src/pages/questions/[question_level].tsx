@@ -63,8 +63,8 @@ const QuestionPage = () => {
           <StepBar QuestionLevel={questionLevel} />
         </div>
         <div className='relative md:w-4/6 w-full flex justify-center'>
-          {/* <Envelope onClick={handleEnvelopeClick} /> */}
-          <QuestionCard question={currentQuestion} />
+          <Envelope onClick={handleEnvelopeClick} />
+          {/* <QuestionCard question={currentQuestion} /> */}
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <QuestionBeforeButton beforeQuestionLevel={beforeQuestionLevel} />
             <QuestionChangeButton onClick={handleChangeQuestion} />
