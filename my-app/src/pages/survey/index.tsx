@@ -29,17 +29,21 @@ const Survey = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const response = await fetch('/api/survey', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    });
-
-    if (response.ok) {
-      console.log('Survey result created');
-      router.push('/thanks');  // 成功した場合に遷移
+    try {
+      const response = await fetch('/api/survey', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        console.log('Survey result created');
+        router.push('/thanks');  // 成功した場合に遷移
+      }
+    } catch (error) {
+      console.error('Survey result creation failed:', error);
     }
   }
 
