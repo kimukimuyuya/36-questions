@@ -39,7 +39,7 @@ const QuestionPage = () => {
 
   useEffect(() => {
     if (Number(questionLevel) > 3) {
-      // router.push('/questionnaire');
+      router.push('/survey');
     } else if (Number(questionLevel) < 1) {
       router.push('/')
     } else {
