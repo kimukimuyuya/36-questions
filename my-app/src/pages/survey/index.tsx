@@ -17,8 +17,10 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  content: z.string(),
-});
+  content: z.string().min(1, {
+    message: "入力していただきたいです",
+  }),
+})
 
 const Survey = () => {
   const [content, setContent] = useState<string>('');
