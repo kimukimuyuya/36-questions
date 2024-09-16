@@ -1,10 +1,12 @@
+import { FormEvent, useState} from 'react';
+import Header from '../../components/Header';
 import router from 'next/router';
-import { useState} from 'react';
 
 const Survey = () => {
   const [content, setContent] = useState<string>('');
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();  // デフォルトのフォーム送信を防ぐ
     const response = await fetch('/api/survey', {
       method: 'POST',
       headers: {
@@ -12,13 +14,16 @@ const Survey = () => {
       },
       body: JSON.stringify({ content }),
     });
+
     if (response.ok) {
       console.log('Survey result created');
-      // router.push('/');
+      router.push('/thanks');  // 成功した場合に遷移
     }
   };
+
   return (
-    <div>
+    <div className='min-h-screen bg-bgColor'>
+      <Header />
       <h1>Survey</h1>
       <form onSubmit={handleSubmit}>
         <textarea
