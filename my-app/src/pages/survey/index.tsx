@@ -52,24 +52,34 @@ const Survey = () => {
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="content"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>最後に、貴方が思う「こんな話題なら関係性が深まる」を教えていただきたいです</FormLabel>
-                <FormControl>
-                  <Input placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">送信する</Button>
-        </form>
-      </Form>
+      <h1 className="text-3xl text-center mt-32 font-bold">最後に</h1>
+      <div className="mt-8 flex justify-center m-2">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
+            <FormField
+              control={form.control}
+              name="content"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='text-md'>貴方が思う「こんな話題なら関係性が深まる」を教えていただきたいです</FormLabel>
+                  <div>
+                    <FormControl>
+                      <Input className='mt-4 p-4' placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
+                    </FormControl>
+                  </div>
+                  <FormMessage />
+                </FormItem>
+
+              )}
+            />
+            <div className="flex justify-center mt-8">
+              <Button type="submit" className="bg-red-700 hover:bg-red-700">
+                送信する
+              </Button>
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   )
 }
