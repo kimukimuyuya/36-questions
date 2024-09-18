@@ -73,7 +73,7 @@ const Survey = () => {
               )}
             />
             <div className="flex justify-center mt-8">
-              <Button type="submit" className="bg-red-700 hover:bg-red-700">
+              <Button type="submit" className="bg-baseColor hover:bg-baseColor">
                 送信する
               </Button>
             </div>

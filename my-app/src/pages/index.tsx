@@ -18,7 +18,7 @@ const Home = () => {
         <div className="mt-6">
           <Link
             href="/questions/1"
-            className="px-8 py-3 text-lg font-medium text-white bg-red-700 rounded-md hover:bg-red-700"
+            className="px-8 py-3 text-lg font-medium text-white bg-baseColor rounded-md hover:bg-baseColor"
           >
             始める
           </Link>
