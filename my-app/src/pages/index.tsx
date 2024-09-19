@@ -12,13 +12,15 @@ const Home = () => {
       </Head>
 
       <main className="flex flex-col items-center justify-center text-center bg-bgColor w-full">
-        <div className='w-full bg-baseColor h-screen flex items-center'>
-          <div className='bg-[url("/couple.png")] bg-contain bg-no-repeat bg-center w-full h-96 flex flex-col items-center justify-center'>
-            <p className='text-white'>関係性を深める、話題提供アプリ</p>
-            <h1 className="text-4xl font-bold mt-2 text-white">36の質問</h1>
+        <div className='w-full overflow-hidden'>
+          <div className='w-full bg-baseColor h-screen flex items-center'>
+            <div className='bg-[url("/couple.png")] bg-contain bg-no-repeat bg-center w-full h-96 flex flex-col items-center justify-center'>
+              <p className='text-white'>関係性を深める、話題提供アプリ</p>
+              <h1 className="text-4xl font-bold mt-2 text-white">36の質問</h1>
+            </div>
           </div>
+          <div className="w-full bg-baseColor rounded-b-[1000px_200px] h-12 mt-[-1px]"></div>
         </div>
-        <div className="w-full bg-baseColor rounded-b-[1000px_200px] h-12"></div>
         <div className='text-baseColor'>
           <div className='mt-16'>
             <p className="text-sm">
