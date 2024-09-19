@@ -3,16 +3,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import router from 'next/router';
+import Header from '@/components/Header';
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-bgColor">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-bgColor">
       <Head>
         <title>36の質問 - ランディングページ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center flex-1 mx-8 text-center mt-20">
+      <main className="flex flex-col items-center justify-center text-center pt-20">
         <div className='mb-12 bg-[url("/couple.png")] bg-cover bg-center w-full h-96 flex flex-col items-center justify-center'>
           <p>関係性を深める、話題提供アプリ</p>
           <h1 className="text-4xl font-bold mt-2 text-baseColor">36の質問</h1>
@@ -31,10 +32,22 @@ const Home = () => {
             ○○できていますか?
           </p>
           <p className="mt-3 text-sm">
-            深い対話ができる関係性の、
+            36の質問は、
           </p>
           <p className="mt-3 text-sm">
-            きっかけ作りができれば幸いです。
+            質問のレベルが3段階に分かれています。
+          </p>
+          <p className="mt-3 text-sm">
+            ライトなところから、徐々に深い質問に。
+          </p>
+          <p className="mt-3 text-sm">
+            是非、最後の質問までやってみてください。
+          </p>
+          <p className="mt-6 text-lg text-baseColor font-extrabold">
+            深い対話ができる関係性の、
+          </p>
+          <p className="mt-3 text-lg text-baseColor font-extrabold">
+            きっかけ作りを。
           </p>
           </div>
           <div className="flex items-center justify-center mt-8">
@@ -56,6 +69,18 @@ const Home = () => {
         </Button>
         <div className='mt-12'>
           <p className='text-sm'>
+            意識してほしいことが1つあります。
+          </p>
+          <p className='text-sm mt-3'>
+            相手の回答を「へぇ~」と聞くだけでなく
+          </p>
+          <p className='text-sm mt-3'>
+            その背景や理由を深ぼってみてください。
+          </p>
+          <p className='text-sm mt-3'>
+            きっと、まだ見ぬ相手の一面が見えてくるはずです。
+          </p>
+          <p className='text-sm mt-3'>
             それでは、互いの心の中を覗く
           </p>
           <p className='text-sm mt-3'>
