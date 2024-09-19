@@ -26,22 +26,22 @@ function DialogCloseButton() {
         <DialogHeader>
           <DialogTitle>コースを選択してください</DialogTitle>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <div className="grid flex-1 gap-2">
-            <Label htmlFor="link" className="sr-only">
-              Link
-            </Label>
-            <Input
-              id="link"
-              defaultValue="https://ui.shadcn.com/docs/installation"
-              readOnly
-            />
-          </div>
-          <Button type="submit" size="sm" className="px-3">
-            <span className="sr-only">Copy</span>
-            <CopyIcon className="h-4 w-4" />
-          </Button>
-        </div>
+        {/* <div className="flex items-center space-x-2"> */}
+        <fieldset className="radio-3">
+          <label>
+            <input type="radio" name="radio-3" />
+            radio1
+          </label>
+          <label>
+            <input type="radio" name="radio-3" />
+            radio2
+          </label>
+          <label>
+            <input type="radio" name="radio-3" />
+            radio3
+          </label>
+        </fieldset>
+        {/* </div> */}
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
             <Button type="button" variant="secondary">

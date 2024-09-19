@@ -97,3 +97,52 @@ body {
   }
 }
 
+/* radioボタン用css */
+.radio-3 {
+  border: none;
+}
+
+.radio-3 label {
+  display: flex;
+  align-items: center;
+  gap: 0 .5em;
+  position: relative;
+  max-width: 200px;
+  margin-bottom: .4em;
+  padding: .5em .7em;
+  border: 1px solid #c7243a;
+  border-radius: 3px;
+  background-color: #c7243a26;
+  cursor: pointer;
+}
+
+.radio-3 label:has(:checked) {
+  background-color: #c7243a;
+  color: #fff;
+}
+
+.radio-3 label::before,
+.radio-3 label:has(:checked)::after {
+  border-radius: 50%;
+  content: '';
+}
+
+.radio-3 label::before {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+}
+
+.radio-3 label:has(:checked)::after {
+  position: absolute;
+  top: 50%;
+  left: calc(7px + .7em);
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: #c7243a;
+}
+
+.radio-3 input {
+  display: none;
+}
