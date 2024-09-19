@@ -105,7 +105,7 @@ body {
 .radio-3 label {
   display: flex;
   align-items: center;
-  gap: 0 .5em;
+  gap: 1em;
   position: relative;
   max-width: 200px;
   margin-bottom: .4em;
