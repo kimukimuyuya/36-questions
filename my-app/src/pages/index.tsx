@@ -33,7 +33,7 @@ const Home = () => {
               長年連れ添ったパートナーの、
             </p>
             <p className="mt-3 text-sm">
-              ○○
+              大切にしている価値観を本当に知っていますか？
             </p>
             <p className="mt-12 text-sm">
               36の質問は、
