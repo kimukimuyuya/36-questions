@@ -36,13 +36,17 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
         SMKY
       </button>
       <div
-        className={`tp transition-all duration-1000 absolute w-full h-full bg-cover bg-[url('/pink_paper.jpg')] ${
-          opened
+        className={`tp z-20 transition-all duration-1000 absolute w-full h-full bg-cover bg-[url('/pink_paper.jpg')]
+          ${opened
             ? 'duration-0 opacity-0 [clip-path:polygon(50%_0%,_100%_0,_0_0)]'
             : '[clip-path:polygon(50%_50%,_100%_0,_0_0)]'
         }`}
       >
       </div>
+      <div 
+        className={`absolute z-10 w-full h-full bg-red-200 top-0 left-0 [clip-path:polygon(50%_51%,_100%_1%,_0_1%)]
+          ${opened ? 'opacity-0' : ''}`}
+      ></div>
       <div
         className={`lft transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_0_0,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')] 
           ${opened ? 'opacity-0 delay-1000' : ''}`}
