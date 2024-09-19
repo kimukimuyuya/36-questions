@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import router from 'next/router';
+import CourseSelectionDialog from '@/components/ CourseSelectionDialog';
 
 const Home = () => {
   return (
@@ -68,9 +69,7 @@ const Home = () => {
                 height={150}
               />
           </div>
-          <Button className='p-5 text-md bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
-              始める
-          </Button>
+          <CourseSelectionDialog />
           <div className='mt-16'>
             <p className='text-sm'>
               意識してほしいことが1つあります。
@@ -96,9 +95,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <Button className='p-5 text-md mb-8 bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
-            始める
-          </Button>
+          <CourseSelectionDialog />
         </div>
         <footer className="flex items-center justify-center w-full h-20 border-t">
           <p className="text-gray-500 text-sm">© 2024&nbsp;
