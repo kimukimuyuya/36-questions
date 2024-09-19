@@ -22,7 +22,7 @@ const Home = () => {
           </div>
           <div className="w-full bg-baseColor rounded-b-[1000px_200px] h-12 mt-[-1px]"></div>
         </div>
-        <div className='text-baseColor'>
+        <div className='text-baseColor mb-16'>
           <div className='mt-16'>
             <p className="text-sm">
               あなたは、気になるあの子の
