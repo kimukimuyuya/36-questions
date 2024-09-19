@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import router from 'next/router';
-import Header from '@/components/Header';
 
 const Home = () => {
   return (
