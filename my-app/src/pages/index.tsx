@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import router from 'next/router';
+import CourseSelectionDialog from '@/components/ CourseSelectionDialog';
 
 const Home = () => {
   return (
@@ -21,22 +22,22 @@ const Home = () => {
           </div>
           <div className="w-full bg-baseColor rounded-b-[1000px_200px] h-12 mt-[-1px]"></div>
         </div>
-        <div className='text-baseColor'>
+        <div className='text-baseColor mb-16'>
           <div className='mt-16'>
             <p className="text-sm">
-              あなたは、気になるあの子の、
+              あなたは、気になるあの子の
             </p>
             <p className="mt-3 text-sm">
-              昔からの友人の、
+              昔からの友人の
             </p>
             <p className="mt-3 text-sm">
-              長年連れ添ったパートナーの、
+              長年連れ添ったパートナーの
             </p>
             <p className="mt-3 text-sm">
               大切にしている価値観を本当に知っていますか？
             </p>
             <p className="mt-12 text-sm">
-              36の質問は、
+              36の質問は
             </p>
             <p className="mt-3 text-sm">
               質問のレベルが3段階に分かれています。
@@ -48,10 +49,10 @@ const Home = () => {
               是非、最後までお楽しみください。
             </p>
             <p className="mt-12 text-lg text-baseColor font-extrabold">
-              深い対話ができる関係性の、
+              深い対話ができる関係性の
             </p>
             <p className="mt-3 text-lg text-baseColor font-extrabold">
-              きっかけ作りを。
+              きっかけ作りを
             </p>
             </div>
             <div className="flex items-center justify-center mt-8 mb-12">
@@ -68,9 +69,7 @@ const Home = () => {
                 height={150}
               />
           </div>
-          <Button className='p-5 text-md bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
-              始める
-          </Button>
+          <CourseSelectionDialog />
           <div className='mt-16'>
             <p className='text-sm'>
               意識してほしいことが1つあります。
@@ -92,13 +91,11 @@ const Home = () => {
                 それでは、互いの心の中を覗く
               </p>
               <p className="mt-3 text-baseColor mb-6">
-                素敵な時間を。
+                素敵な時間を
               </p>
             </div>
           </div>
-          <Button className='p-5 text-md mb-8 bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
-            始める
-          </Button>
+          <CourseSelectionDialog />
         </div>
         <footer className="flex items-center justify-center w-full h-20 border-t">
           <p className="text-gray-500 text-sm">© 2024&nbsp;
