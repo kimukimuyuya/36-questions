@@ -50,35 +50,38 @@ const Survey = () => {
   }
 
   return (
-    <div className='min-h-screen bg-bgColor'>
+    <div className='min-h-screen bg-bgColor flex flex-col'>
       <Header />
-      <h1 className="text-3xl text-center mt-32 font-bold">最後に</h1>
-      <div className="mt-8 flex justify-center m-2">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
-            <FormField
-              control={form.control}
-              name="content"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className='text-md'>貴方が思う「こんな話題なら関係性が深まる」を教えていただきたいです</FormLabel>
-                  <div>
-                    <FormControl>
-                      <Input className='mt-4 p-4' placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
-                    </FormControl>
-                  </div>
-                  <FormMessage />
-                </FormItem>
-
-              )}
-            />
-            <div className="flex justify-center mt-8">
-              <Button type="submit" className="bg-baseColor hover:bg-baseColor">
-                送信する
-              </Button>
-            </div>
-          </form>
-        </Form>
+      <div className='flex-1 flex items-center justify-center'>
+        <div className='flex items-center justify-center flex-col'>
+          <h1 className="text-3xl text-center font-bold">最後に</h1>
+          <div className="mt-8 flex justify-center m-2">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
+                <FormField
+                  control={form.control}
+                  name="content"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-md'>貴方が思う「こんな話題なら関係性が深まる」を教えていただきたいです。</FormLabel>
+                      <div>
+                        <FormControl>
+                          <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
+                        </FormControl>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <div className="flex justify-center mt-8">
+                  <Button type="submit" className="bg-baseColor hover:bg-Color">
+                    送信する
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </div>
+        </div>
       </div>
     </div>
   )
