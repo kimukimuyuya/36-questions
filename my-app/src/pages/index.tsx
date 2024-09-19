@@ -18,8 +18,9 @@ const Home = () => {
             <h1 className="text-4xl font-bold mt-2 text-white">36の質問</h1>
           </div>
         </div>
+        <div className="w-full bg-baseColor rounded-b-[1000px_200px] h-12"></div>
         <div className='text-baseColor'>
-          <div className='mt-12'>
+          <div className='mt-16'>
             <p className="text-sm">
               あなたは、気になるあの子の、
             </p>
