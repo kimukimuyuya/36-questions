@@ -7,44 +7,46 @@ import Header from '@/components/Header';
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-baseColor px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-baseColor">
       <Head>
         <title>36の質問 - ランディングページ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center text-center pt-20 bg-bgColor w-full">
-        <div className='mb-12 bg-[url("/couple.png")] bg-cover bg-center w-full h-96 flex flex-col items-center justify-center'>
-          <p>関係性を深める、話題提供アプリ</p>
-          <h1 className="text-4xl font-bold mt-2 text-baseColor">36の質問</h1>
+      <main className="flex flex-col items-center justify-center text-center bg-bgColor w-full">
+        <div className='w-full bg-baseColor pt-32'>
+          <div className='mb-12 bg-[url("/couple.png")] bg-cover bg-center w-full h-96 flex flex-col items-center justify-center'>
+            <p className='text-white'>関係性を深める、話題提供アプリ</p>
+            <h1 className="text-4xl font-bold mt-2 text-white">36の質問</h1>
+          </div>
         </div>
         <div className='text-baseColor'>
-          <div className=''>
+          <div className='mt-12'>
             <p className="text-sm">
-              あなたは気になるあの子と、
+              あなたは、気になるあの子の、
             </p>
             <p className="mt-3 text-sm">
-              昔からの友人と、
+              昔からの友人の、
             </p>
             <p className="mt-3 text-sm">
-              長年連れ添ったパートナーと、
+              長年連れ添ったパートナーの、
             </p>
             <p className="mt-3 text-sm">
-              ○○できていますか?
+              ○○
             </p>
-            <p className="mt-3 text-sm">
+            <p className="mt-12 text-sm">
               36の質問は、
             </p>
             <p className="mt-3 text-sm">
-              質問のレベルが3段階に分かれています
+              質問のレベルが3段階に分かれています。
             </p>
             <p className="mt-3 text-sm">
               ライトなところから、徐々に深いところへ
             </p>
             <p className="mt-3 text-sm">
-              是非、最後までお楽しみください
+              是非、最後までお楽しみください。
             </p>
-            <p className="mt-6 text-lg text-baseColor font-extrabold">
+            <p className="mt-12 text-lg text-baseColor font-extrabold">
               深い対話ができる関係性の、
             </p>
             <p className="mt-3 text-lg text-baseColor font-extrabold">
@@ -70,18 +72,18 @@ const Home = () => {
           </Button>
           <div className='mt-12'>
             <p className='text-sm'>
-              意識してほしいことが1つあります
+              意識してほしいことが1つあります。
             </p>
             <p className='text-sm mt-3'>
               相手の回答を「へぇ~」と聞くだけでなく
             </p>
             <p className='text-sm mt-3'>
-              その背景や理由を深ぼってみてください
+              その背景や理由を深ぼってみてください。
             </p>
             <p className='text-sm mt-3'>
-              きっと、まだ見ぬ相手の一面が見えてくるはずです
+              きっと、まだ見ぬ相手の一面が見えてくるはずです。
             </p>
-            <p className="mt-6 text-lg text-baseColor font-extrabold">
+            <p className="mt-12 text-lg text-baseColor font-extrabold">
               それでは、互いの心の中を覗く
             </p>
             <p className="mt-3 text-lg text-baseColor font-extrabold">
@@ -100,11 +102,19 @@ const Home = () => {
             始める
           </Button>
         </div>
+        <footer className="flex items-center justify-center w-full h-20 border-t">
+          <p className="text-gray-500 text-sm">© 2024&nbsp;
+          <a 
+            href="https://twitter.com/kimu26sotsu" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="underline hover:text-blue-400">
+            kimu
+          </a>
+          </p>
+        </footer>
       </main>
 
-      {/* <footer className="flex items-center justify-center w-full h-24 border-t">
-        <p className="text-gray-500">© 2024 36の質問. All rights reserved.</p>
-      </footer> */}
     </div>
   );
 };
