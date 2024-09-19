@@ -53,7 +53,7 @@ const Home = () => {
               きっかけ作りを。
             </p>
             </div>
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center justify-center mt-8 mb-12">
               <Image
                 src="/bride.png"
                 alt="新婦"
@@ -67,10 +67,10 @@ const Home = () => {
                 height={150}
               />
           </div>
-          <Button className='p-5 text-md mt-12 bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
+          <Button className='p-5 text-md bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
               始める
           </Button>
-          <div className='mt-12'>
+          <div className='mt-16'>
             <p className='text-sm'>
               意識してほしいことが1つあります。
             </p>
@@ -83,22 +83,19 @@ const Home = () => {
             <p className='text-sm mt-3'>
               きっと、まだ見ぬ相手の一面が見えてくるはずです。
             </p>
-            <p className="mt-12 text-lg text-baseColor font-extrabold">
-              それでは、互いの心の中を覗く
-            </p>
-            <p className="mt-3 text-lg text-baseColor font-extrabold">
-              素敵な時間を。
-            </p>
-            <div className='mt-6 flex justify-center'>
-              <Image 
-                src="/book.png"
-                alt="本"
-                width={100}
-                height={100}
-              />
+            <div
+              className='my-12 text-lg text-baseColor font-extrabold bg-center bg-no-repeat relative bg-[url("/book.png")] h-48 flex
+              flex-col items-center justify-end bg-contain'
+            >
+              <p className='text-baseColor'>
+                それでは、互いの心の中を覗く
+              </p>
+              <p className="mt-3 text-baseColor mb-6">
+                素敵な時間を。
+              </p>
             </div>
           </div>
-          <Button className='p-5 text-md my-8 bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
+          <Button className='p-5 text-md mb-8 bg-baseColor hover:bg-baseColor' onClick={() => router.push('/questions/1')}>
             始める
           </Button>
         </div>
