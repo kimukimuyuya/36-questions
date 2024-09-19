@@ -36,7 +36,7 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
         SMKY
       </button>
       <div
-        className={`tp z-20 transition-all duration-1000 absolute w-full h-full bg-cover bg-[url('/pink_paper.jpg')]
+        className={`tp z-20 transition-all duration-1000 absolute w-full h-full bg-cover bg-[url('/pink.jpg')]
           ${opened
             ? 'duration-0 opacity-0 [clip-path:polygon(50%_0%,_100%_0,_0_0)]'
             : '[clip-path:polygon(50%_50%,_100%_0,_0_0)]'
@@ -48,15 +48,15 @@ const Envelope = ({ onClick }: { onClick: () => void }) => {
           ${opened ? 'opacity-0' : ''}`}
       ></div>
       <div
-        className={`lft transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_0_0,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')] 
+        className={`lft transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_0_0,_0_100%)] bg-cover bg-[url('/pink.jpg')] 
           ${opened ? 'opacity-0 delay-1000' : ''}`}
       ></div>
       <div
-        className={`rgt transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] bg-cover bg-[url('/pink_paper.jpg')]
+        className={`rgt transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] bg-cover bg-[url('/pink.jpg')]
           ${opened ? 'opacity-0 delay-1000' : ''}`}
       ></div>
       <div
-        className={`btm transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] bg-cover bg-[url('/pink_paper.jpg')]
+        className={`btm transition-all duration-700 absolute w-full h-full [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] bg-cover bg-[url('/pink.jpg')]
           ${opened ? 'opacity-0 delay-1000' : ''}`}
       ></div>
     </div>
