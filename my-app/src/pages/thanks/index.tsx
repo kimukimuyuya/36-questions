@@ -7,18 +7,18 @@ const Thanks = () => {
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
-      <main className='flex flex-col items-center py-12 justify-center'>
-        <div className='text-center space-y-8 mx-8 mb-12'>
-          <p className='text-md font-semibold text-baseColor'>
+      <main className='flex flex-col items-center pt-12 justify-center'>
+        <div className='text-center space-y-8 mx-8 mb-12 text-baseColor'>
+          <p className='text-md font-semibold'>
             ご回答いただきありがとうございます。
           </p>
           <p className='text-sm'>
-            <span className='text-baseColor'>素敵な時間</span>を過ごせましたか?
+            素敵な時間を過ごせましたか?
           </p>
           <p className='text-sm'>
-            相手の<span className='text-baseColor'>心の中</span>を覗けましたか?
+            相手の心の中を覗けましたか?
           </p>
-          <p className='text-sm space-y-6'>
+          <p className='text-sm'>
             もし、関係性を深めるお手伝いができていましたら光栄です。
           </p>
         </div>
