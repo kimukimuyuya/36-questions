@@ -38,6 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const distribution = QUESTIONS_DISTRIBUTION[course];
 
+  // リクエスト回数が1回になるが、応答速度が遅いversion
   try {
     const allQuestions = await prisma.questions.findMany();
     const formattedQuestions = allQuestions.map(question => ({
@@ -60,4 +61,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     console.error(error);
     res.status(500).json({ questions: [] });
   }
+
+  // リクエスト回数が3回になるが、応答速度が速いversion
+
+  // try {
+  //   const level1Questions = await prisma.questions.findMany({
+  //     where: { level: 1 },
+  //     take: distribution.level1
+  //   });
+
+  //   const level2Questions = await prisma.questions.findMany({
+  //     where: { level: 2 },
+  //     take: distribution.level2
+  //   });
+
+  //   const level3Questions = await prisma.questions.findMany({
+  //     where: { level: 3 },
+  //     take: distribution.level3
+  //   });
+
+  //   // 返ってくるデータの形式を整形
+  //   const questions = [...level1Questions, ...level2Questions, ...level3Questions].map(question => ({
+  //     id: Number(question.id),
+  //     question: question.content || '',
+  //     level: Number(question.level)
+  //   }));
+
+  //   res.status(200).json({ questions });
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({ questions: [] });
+  // }
 }
