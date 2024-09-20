@@ -32,27 +32,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const distribution = QUESTIONS_DISTRIBUTION[course];
 
   try {
-    const level1Questions = await prisma.questions.findMany({
-      where: { level: 1 },
-      take: distribution.level1
-    });
-
-    const level2Questions = await prisma.questions.findMany({
-      where: { level: 2 },
-      take: distribution.level2
-    });
-
-    const level3Questions = await prisma.questions.findMany({
-      where: { level: 3 },
-      take: distribution.level3
-    });
-
-    // 返ってくるデータの形式を整形
-    const questions = [...level1Questions, ...level2Questions, ...level3Questions].map(question => ({
+    const allQuestions = await prisma.questions.findMany();
+    const formattedQuestions = allQuestions.map(question => ({
       id: Number(question.id),
       question: question.content || '',
       level: Number(question.level)
     }));
+
+    // allQuestionsからそれぞれのレベルの問題を適切な数だけ取得
+    const level1Questions = formattedQuestions.filter(question => question.level === 1).slice(0, distribution.level1);
+    const level2Questions = formattedQuestions.filter(question => question.level === 2).slice(0, distribution.level2);
+    const level3Questions = formattedQuestions.filter(question => question.level === 3).slice(0, distribution.level3);
+
+    const questions = [...level1Questions, ...level2Questions, ...level3Questions]
 
     res.status(200).json({ questions });
   } catch (error) {
