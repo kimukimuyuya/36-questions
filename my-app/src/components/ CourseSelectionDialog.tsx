@@ -12,14 +12,14 @@ import {
 import React, { useState } from "react"
 
 function DialogCloseButton() {
-  const [selectedValue, setSelectedValue] = useState('5');
+  const [selectedCourse, setSelectedCourse] = useState('30min');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
+    setSelectedCourse(event.target.value);
   };
 
   const handleButtonClick = () => {
-    console.log(selectedValue);
+    console.log(selectedCourse);
   };
 
   return (
@@ -39,8 +39,8 @@ function DialogCloseButton() {
               <input
                 type="radio"
                 name="radio-3"
-                value="5"
-                checked={selectedValue === '5'}
+                value="30min"
+                checked={selectedCourse === '30min'}
                 onChange={handleChange}
               />
               30分(5問)
@@ -49,8 +49,8 @@ function DialogCloseButton() {
               <input
                 type="radio"
                 name="radio-3"
-                value="10"
-                checked={selectedValue === '10'}
+                value="1hour"
+                checked={selectedCourse === '1hour'}
                 onChange={handleChange}
               />
               1時間(10問)
@@ -59,8 +59,8 @@ function DialogCloseButton() {
               <input
                 type="radio"
                 name="radio-3"
-                value="18"
-                checked={selectedValue === '18'}
+                value="2hours"
+                checked={selectedCourse === '2hours'}
                 onChange={handleChange}
               />
               2時間(18問)
@@ -69,8 +69,8 @@ function DialogCloseButton() {
               <input
                 type="radio"
                 name="radio-3"
-                value="36"
-                checked={selectedValue === '36'}
+                value="4hours"
+                checked={selectedCourse === '4hours'}
                 onChange={handleChange}
               />
               4時間(36問)
