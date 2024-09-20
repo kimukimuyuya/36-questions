@@ -10,19 +10,27 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import React, { useState } from "react"
+import { useRouter } from 'next/router'
+import useQuestionsStore from '@/store/questionsStore';
 
 function DialogCloseButton() {
   const [selectedCourse, setSelectedCourse] = useState('30min');
+  const router = useRouter();
+  const setQuestions = useQuestionsStore(state => state.setQuestions);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCourse(event.target.value);
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     console.log(selectedCourse);
+    const response = await fetch(`api/questions?course=${selectedCourse}`);
+    const data = await response.json();
+    setQuestions(data.questions);
+    router.push(`/questions?course=${selectedCourse}`);
   };
 
-  return (
+  return (  
     <Dialog>
       <DialogTrigger asChild>
         <Button className='p-5 text-md bg-baseColor hover:bg-baseColor'>
