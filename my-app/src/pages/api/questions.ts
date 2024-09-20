@@ -20,6 +20,13 @@ const QUESTIONS_DISTRIBUTION: { [key: string]: Distribution } = {
   "4hours": { level1: 12, level2: 12, level3: 12 }
 };
 
+const shuffleArray = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const course = req.query.course as string;
@@ -38,6 +45,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       question: question.content || '',
       level: Number(question.level)
     }));
+
+    shuffleArray(formattedQuestions);
 
     // allQuestionsからそれぞれのレベルの問題を適切な数だけ取得
     const level1Questions = formattedQuestions.filter(question => question.level === 1).slice(0, distribution.level1);
