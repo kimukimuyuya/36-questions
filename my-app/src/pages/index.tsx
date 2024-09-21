@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import router from 'next/router';
 import CourseSelectionDialog from '@/components/ CourseSelectionDialog';
 
 const Home = () => {
