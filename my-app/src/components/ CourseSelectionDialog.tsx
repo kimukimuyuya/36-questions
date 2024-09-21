@@ -23,8 +23,7 @@ function DialogCloseButton() {
   };
 
   const handleButtonClick = async () => {
-    console.log(selectedCourse);
-    const response = await fetch(`api/questions?course=${selectedCourse}`);
+    const response = await fetch(`/api/questions?course=${selectedCourse}`);
     const data = await response.json();
     setQuestions(data.questions);
     router.push(`/questions?course=${selectedCourse}`);
