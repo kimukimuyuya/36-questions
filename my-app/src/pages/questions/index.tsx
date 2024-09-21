@@ -13,9 +13,7 @@ import useQuestionsStore from '@/store/questionsStore';
 const QuestionPage = () => {
   const router = useRouter();
   const questions = useQuestionsStore(state => state.questions);
-  const [currentQuestion, setCurrentQuestion] = useState('');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  console.log(questions);
 
   useEffect(() => {
     if (questions.length === 0) {
@@ -36,7 +34,6 @@ const QuestionPage = () => {
       <div>
         <h1>質問</h1>
         <p>{questions[currentQuestionIndex]?.content}</p>
-        <p>{currentQuestion}</p>
         <button onClick={nextQuestion}>次へ</button>
       </div>
     </div>
