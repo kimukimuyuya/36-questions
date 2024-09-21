@@ -13,7 +13,7 @@ import React, { useState } from "react"
 import { useRouter } from 'next/router'
 import useQuestionsStore from '@/store/questionsStore';
 
-function DialogCloseButton() {
+function CourseSelectionDialog() {
   const [selectedCourse, setSelectedCourse] = useState('30min');
   const router = useRouter();
   const setQuestions = useQuestionsStore(state => state.setQuestions);
@@ -96,5 +96,5 @@ function DialogCloseButton() {
   )
 }
 
-export default DialogCloseButton
+export default CourseSelectionDialog
 
