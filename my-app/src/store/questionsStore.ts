@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 type Question = {
   id: number;
@@ -12,9 +13,13 @@ type State = {
   setQuestions: (questions: Question[]) => void;
 };
 
-const useQuestionsStore = create<State>((set) => ({
-  questions: [],
-  setQuestions: (questions: Question[]) => set({ questions }),
-}));
+const useQuestionsStore = create<State>()(
+  devtools(
+    (set) => ({
+      questions: [],
+      setQuestions: (questions) => set({ questions }),
+    })
+  )
+);
 
 export default useQuestionsStore;
