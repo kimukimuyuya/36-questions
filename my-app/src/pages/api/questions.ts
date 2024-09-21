@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 type Data = {
-  questions: Array<{ id: number; question: string; level: number }>;
+  questions: Array<{ id: number; content: string; level: number }>;
 };
 
 type Distribution = {
@@ -43,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const allQuestions = await prisma.questions.findMany();
     const formattedQuestions = allQuestions.map(question => ({
       id: Number(question.id),
-      question: question.content || '',
+      content: question.content || '',
       level: Number(question.level)
     }));
 
