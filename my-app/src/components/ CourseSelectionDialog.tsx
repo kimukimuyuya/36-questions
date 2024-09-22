@@ -18,7 +18,6 @@ function CourseSelectionDialog() {
   const [selectedCourse, setSelectedCourse] = useState('30min');
   const setQuestions = useQuestionsStore(state => state.setQuestions);
   const [loading, setLoading] = useState(false);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCourse(event.target.value);
   };
