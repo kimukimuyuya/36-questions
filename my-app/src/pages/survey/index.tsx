@@ -17,17 +17,21 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  content: z.string().min(1, {
-    message: "入力していただきたいです",
+  impressions: z.string().min(1, {
+    message: "必須入力",
+  }),
+  content: z.string().min(0, {
   }),
 })
 
 const Survey = () => {
-  const [content, setContent] = useState<string>('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { content: '' },
+    defaultValues: {
+      impressions: '',
+      content: '',
+    },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -54,16 +58,31 @@ const Survey = () => {
       <Header />
       <div className='flex-1 flex items-center justify-center'>
         <div className='flex items-center justify-center flex-col'>
-          <h1 className="text-3xl text-center font-bold">最後に</h1>
+          <h1 className="text-3xl text-center font-bold text-baseColor">アンケート</h1>
           <div className="mt-8 flex justify-center m-2">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
                 <FormField
                   control={form.control}
+                  name="impressions"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-md'>1. 感想、改善点(必須)</FormLabel>
+                      <div>
+                        <FormControl>
+                          <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="" {...field} />
+                        </FormControl>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
                   name="content"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-md'>貴方が思う「こんな話題なら関係性が深まる」を教えていただきたいです。</FormLabel>
+                      <FormLabel className='text-md'>2. 貴方が思う「こんな話題なら関係性が深まる」を教えてください</FormLabel>
                       <div>
                         <FormControl>
                           <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
