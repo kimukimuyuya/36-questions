@@ -17,8 +17,15 @@ const useCurrentQuestion = (questions: Question[]) => {
   const [currentQuestionContent, setCurrentQuestionContent] = useState<string>("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(1);
-  const [isLevelChange, setIsLevelChange] = useState<boolean>(false); // レベルの変更を検知するためのstate
+  const [isLevelChange, setIsLevelChange] = useState<boolean>(true); // レベルの変更を検知するためのstate
   const [showEndAnimation, setShowEndAnimation] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (questions.length > 0) {
+      // setIsLevelChange(true);
+      setTimeout(() => setIsLevelChange(false), 2000);
+    }
+  }, []);
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -71,7 +78,9 @@ const QuestionPage = () => {
           </div>
           <main className="flex flex-col items-center p-4">
             {isLevelChange ? (
-              <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn ${currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}`}>
+              <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn 
+              ${currentQuestionLevel === 1 ? 'text-secondaryColor' : currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}
+              `}>
                 レベル{currentQuestionLevel}
               </div>
             ) : (
