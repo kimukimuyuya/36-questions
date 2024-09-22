@@ -64,12 +64,16 @@ const Home = () => {
                 alt="新婦"
                 width={150}
                 height={150}
+                priority={true}
+                quality={75}
               />
               <Image
                 src="/bridegroom.png"
                 alt="新郎"
                 width={150}
                 height={150}
+                priority={true}
+                quality={75}
               />
           </div>
           <CourseSelectionDialog />
