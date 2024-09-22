@@ -89,7 +89,7 @@ const QuestionPage = () => {
                 onClick={nextQuestion}
                 className='bg-baseColor hover:bg-baseColor'
               >
-                次の問題
+                次の質問
               </Button>
             </div>
           </div>
