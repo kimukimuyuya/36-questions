@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import router from 'next/router';
 import useQuestionsStore from '@/store/questionsStore';
 import { Button } from '@/components/ui/button';
+import 'animate.css'
 
 type Question = {
   id: number;
@@ -54,7 +55,7 @@ const QuestionPage = () => {
       </div>
       <main className="flex flex-col items-center p-4">
         {showLevelMessage ? (
-          <div className='text-3xl font-bold my-10'>レベル{currentQuestionLevel}</div>
+          <div className='text-3xl font-bold my-10 animate__animated animate__fadeIn'>レベル{currentQuestionLevel}</div>
         ) : (
           <div className='relative md:w-4/6 w-full flex justify-center'>
             <QuestionCard question={currentQuestionContent} />
