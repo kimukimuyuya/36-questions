@@ -14,7 +14,7 @@ const Home = () => {
         <div className='w-full overflow-hidden'>
           <div className='w-full bg-baseColor h-screen flex items-center'>
             <div className='bg-[url("/couple.png")] bg-contain bg-no-repeat bg-center w-full h-96 flex flex-col items-center justify-center'>
-              <p className='text-white'>関係性を深める、話題提供アプリ</p>
+              <h2 className='text-white'>関係性を深める、話題提供アプリ</h2>
               <h1 className="text-4xl font-bold mt-2 text-white">36の質問</h1>
             </div>
           </div>
