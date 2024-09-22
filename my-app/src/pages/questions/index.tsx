@@ -82,12 +82,13 @@ const QuestionPage = () => {
         ) : (
           <div className='relative md:w-4/6 w-full flex justify-center'>
             {/* <div className='animate__animated animate__fadeInRight w-full h-full'> */}
-              <QuestionCard question={currentQuestionContent}/> 
+              <QuestionCard question={currentQuestionContent} aria-label={`質問内容: ${currentQuestionContent}`}/> 
             {/* </div> */}
             <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
               <Button
                 onClick={nextQuestion}
                 className='bg-baseColor hover:bg-baseColor'
+                aria-label="次の質問に進む"
               >
                 次の質問
               </Button>
