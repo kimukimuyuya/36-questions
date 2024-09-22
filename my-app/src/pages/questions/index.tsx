@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { questionsLevel1, questionsLevel2, questionsLevel3 } from '../../data/questions';
 import QuestionCard from '../../components/QuestionCard';
 import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
