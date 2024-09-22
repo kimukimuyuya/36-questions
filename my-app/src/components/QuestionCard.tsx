@@ -41,7 +41,7 @@ const QuestionCard = ({ question }: {question: string}) => {
     }
   }, []);
 
-  const questionText = 'Q. ' + question;
+  const questionText = 'Q.' + question;
   const splitQuestion = splitIntoRectWidth(questionText, rectWidth);
 
   return (
