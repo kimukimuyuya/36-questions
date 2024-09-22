@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import CourseSelectionDialog from '@/components/ CourseSelectionDialog';
 import { SeoHead } from '@/components/SeoHead';
+import dynamic from 'next/dynamic';
+const CourseSelectionDialog = dynamic(() => import('@/components/CourseSelectionDialog'), { ssr: false });
 
 const Home = () => {
   return (
