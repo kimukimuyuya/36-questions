@@ -146,3 +146,77 @@ body {
 .radio-3 input {
   display: none;
 }
+
+/* loading画面のレイアウト */
+.loader  {
+  animation: rotate 1s infinite;  
+  height: 75px;
+  width: 75px;
+}
+
+.loader:before,
+.loader:after {   
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 30px;  
+  width: 30px;
+}
+.loader:before {
+  animation: ball1 1s infinite;  
+  background-color: #C7243A;
+  box-shadow: 45px 0 0 #DA6272;
+  margin-bottom: 15px;
+}
+.loader:after {
+  animation: ball2 1s infinite; 
+  background-color: #ECACB5;
+  box-shadow: 45px 0 0 #F6D4D8;
+}
+
+@keyframes rotate {
+  0% { 
+    -webkit-transform: rotate(0deg) scale(0.8); 
+    -moz-transform: rotate(0deg) scale(0.8);
+  }
+  50% { 
+    -webkit-transform: rotate(360deg) scale(1.2); 
+    -moz-transform: rotate(360deg) scale(1.2);
+  }
+  100% { 
+    -webkit-transform: rotate(720deg) scale(0.8); 
+    -moz-transform: rotate(720deg) scale(0.8);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 45px 0 0 #DA6272;
+  }
+  50% {
+    box-shadow: 0 0 0 #DA6272;
+    margin-bottom: 0;
+    -webkit-transform: translate(22.5px,22.5px);
+    -moz-transform: translate(22.5px, 22.5px); 
+  }
+  100% {
+    box-shadow: 45px 0 0 #DA6272;
+    margin-bottom: 15px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 45px 0 0 #F6D4D8;
+  }
+  50% {
+    box-shadow: 0 0 0 #F6D4D8;
+    margin-top: -30px;
+    -webkit-transform: translate(22.5px,22.5px);
+    -moz-transform: translate(22.5px, 22.5px); 
+  }
+  100% {
+    box-shadow: 45px 0 0 #F6D4D8;
+    margin-top: 0;
+  }
+}
