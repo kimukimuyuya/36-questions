@@ -20,8 +20,15 @@ type Question = {
 
 const QuestionPage = () => {
   const questions: Question[] = useQuestionsStore(state => state.questions);
+  const [currentQuestionContent, setCurrentQuestionContent] = useState<string>("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(questions[0].level);
+  const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(1);
+
+  useEffect(() => {
+    if (questions.length > 0) {
+      setCurrentQuestionContent(questions[currentQuestionIndex].content);
+    }
+  }, [questions, currentQuestionIndex]);
 
   const nextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
@@ -49,7 +56,7 @@ const QuestionPage = () => {
         </div>
         <div className='relative md:w-4/6 w-full flex justify-center'>
           {/* <Envelope onClick={handleEnvelopeClick} /> */}
-          <QuestionCard question={questions[currentQuestionIndex].content} />
+          <QuestionCard question={currentQuestionContent} />
           <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <Button onClick={nextQuestion} className='bg-baseColor hover:bg-baseColor'>次の問題</Button>
           </div>
