@@ -28,7 +28,8 @@ const StepBar = ({ QuestionLevel }: { QuestionLevel: number }) => {
               {/* 線 */}
               {index < levels.length - 1 && (
                 <div
-                  className={`line absolute top-1/2 transform -translate-y-1/2 h-1 sm:h-1.5 ${currentLevel > level.number ? 'line-active bg-baseColor' : 'bg-gray-500'} transition-all duration-500`}
+                  className={`line absolute top-1/2 transform -translate-y-1/2 h-1 sm:h-1.5 transition-all duration-500
+                    bg-gradient-to-r from-${level.color} to-${levels[index + 1].color}`}
                   style={{
                     width: currentLevel > level.number ? '200%' : '0',
                     left: '2rem',
