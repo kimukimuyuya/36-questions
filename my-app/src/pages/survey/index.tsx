@@ -79,7 +79,7 @@ const Survey = () => {
                         <FormLabel className='text-md'>1. 感想、改善点(必須)</FormLabel>
                         <div>
                           <FormControl>
-                            <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="" {...field} />
+                            <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="ex. 時間が足りなかった" {...field} />
                           </FormControl>
                         </div>
                         <FormMessage />
