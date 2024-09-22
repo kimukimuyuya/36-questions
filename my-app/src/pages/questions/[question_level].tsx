@@ -16,24 +16,24 @@ const getRandomQuestion = (questions: string[]) => {
 
 const QuestionPage = () => {
   const router = useRouter();
-  const questionLevel: string = router.query.question_level as string;
+  const questionLevel: number = router.query.question_level ? Number(router.query.question_level) : 1;
   const nextQuestionLevel = Number(questionLevel) + 1;
   const beforeQuestionLevel = Number(questionLevel) - 1;
 
-  const getQuestions = (id: string) => {
+  const getQuestions = (id: number) => {
     switch (id) {
-      case '1':
+      case 1:
         return questionsLevel1;
-      case '2':
+      case 2:
         return questionsLevel2;
-      case '3':
+      case 3:
         return questionsLevel3;
       default:
         return questionsLevel1;
     }
   };
 
-  const questions = getQuestions(questionLevel as string);
+  const questions = getQuestions(questionLevel as number);
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [usedQuestions, setUsedQuestions] = useState<string[]>([]);
 
