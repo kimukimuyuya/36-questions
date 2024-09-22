@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import 'animate.css'
 
 const formSchema = z.object({
   impressions: z.string().min(1, {
@@ -64,7 +65,7 @@ const Survey = () => {
       )}
       <div className='min-h-screen bg-bgColor flex flex-col'>
         <Header />
-        <div className='flex-1 flex items-center justify-center'>
+        <div className='flex-1 flex items-center justify-center animate__animated animate__fadeIn'>
           <div className='flex items-center justify-center flex-col'>
             <h1 className="text-3xl text-center font-bold text-baseColor">アンケート</h1>
             <div className="mt-8 flex justify-center m-2">
