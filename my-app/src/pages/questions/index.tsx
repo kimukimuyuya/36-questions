@@ -55,7 +55,9 @@ const QuestionPage = () => {
       </div>
       <main className="flex flex-col items-center p-4">
         {showLevelMessage ? (
-          <div className='text-3xl font-bold my-10 animate__animated animate__fadeIn'>レベル{currentQuestionLevel}</div>
+          <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn ${currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}`}>
+            レベル{currentQuestionLevel}
+          </div>
         ) : (
           <div className='relative md:w-4/6 w-full flex justify-center'>
             <QuestionCard question={currentQuestionContent} />
