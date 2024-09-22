@@ -17,7 +17,7 @@ const useCurrentQuestion = (questions: Question[]) => {
   const [currentQuestionContent, setCurrentQuestionContent] = useState<string>("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(1);
-  const [showLevelMessage, setShowLevelMessage] = useState<boolean>(false);
+  const [isLevelChange, setIsLevelChange] = useState<boolean>(false); // レベルの変更を検知するためのstate
   const [showEndAnimation, setShowEndAnimation] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,12 +30,14 @@ const useCurrentQuestion = (questions: Question[]) => {
     const nextIndex = currentQuestionIndex + 1;
     if (nextIndex < questions.length) {
       if (questions[nextIndex].level !== currentQuestionLevel) {
+        // レベルが変わったときの処理
         setCurrentQuestionLevel(questions[nextIndex].level);
-        setShowLevelMessage(true);
-        setTimeout(() => setShowLevelMessage(false), 2000);
+        setIsLevelChange(true);
+        setTimeout(() => setIsLevelChange(false), 2000);
       }
       setCurrentQuestionIndex(nextIndex);
     } else {
+      // 最後の質問に到達し、次へボタンをクリックしたときの処理
       setShowEndAnimation(true);
       setTimeout(() => {
         router.push('/survey');
@@ -43,17 +45,18 @@ const useCurrentQuestion = (questions: Question[]) => {
     }
   };
 
-  return { currentQuestionContent, currentQuestionLevel, showLevelMessage, showEndAnimation, nextQuestion };
+  return { currentQuestionContent, currentQuestionLevel, isLevelChange, showEndAnimation, nextQuestion };
 };
 
 const QuestionPage = () => {
   const questions = useQuestionsStore(state => state.questions);
-  const { currentQuestionContent, currentQuestionLevel, showLevelMessage, showEndAnimation, nextQuestion } = useCurrentQuestion(questions);
+  const { currentQuestionContent, currentQuestionLevel, isLevelChange, showEndAnimation, nextQuestion } = useCurrentQuestion(questions);
 
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
       {showEndAnimation ? (
+        // 最後の質問が終わった後の画面
         <div className="flex flex-col items-center justify-center animate__animated animate__fadeIn">
           <div className='text-center mx-8 text-baseColor mt-40 text-md'>
             <p className="mb-8">質問は以上となります。</p>
@@ -67,7 +70,7 @@ const QuestionPage = () => {
             <StepBar QuestionLevel={currentQuestionLevel} />
           </div>
           <main className="flex flex-col items-center p-4">
-            {showLevelMessage ? (
+            {isLevelChange ? (
               <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn ${currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}`}>
                 レベル{currentQuestionLevel}
               </div>
