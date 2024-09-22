@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { questionsLevel1, questionsLevel2, questionsLevel3 } from '../../data/questions';
 import QuestionCard from '../../components/QuestionCard';
-import QuestionChangeButton from '../../components/QuestionChangeButton';
-import QuestionNextButton from '../../components/QuestionNextButton';
-import QuestionBeforeButton from '../../components/QuestionBeforeButton';
-import Envelope from '@/components/Envelope';
 import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
-import { useRouter } from 'next/router';
 import router from 'next/router';
 import useQuestionsStore from '@/store/questionsStore';
 import { Button } from '@/components/ui/button';
@@ -18,11 +13,11 @@ type Question = {
   level: number;
 };
 
-const QuestionPage = () => {
-  const questions: Question[] = useQuestionsStore(state => state.questions);
+const useCurrentQuestion = (questions: Question[]) => {
   const [currentQuestionContent, setCurrentQuestionContent] = useState<string>("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(1);
+  const [showLevelMessage, setShowLevelMessage] = useState<boolean>(false);
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -33,34 +28,41 @@ const QuestionPage = () => {
   const nextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
     if (nextIndex < questions.length) {
-      setCurrentQuestionIndex(nextIndex);
-      // 次の問題が現在のレベルと異なる場合に更新する
       if (questions[nextIndex].level !== currentQuestionLevel) {
         setCurrentQuestionLevel(questions[nextIndex].level);
+        setShowLevelMessage(true);
+        setTimeout(() => setShowLevelMessage(false), 2000);
       }
+      setCurrentQuestionIndex(nextIndex);
     } else {
       router.push('/survey');
     }
   };
 
-  const handleEnvelopeClick = () => {
-    console.log('handleEnvelopeClick');
-  }
+  return { currentQuestionContent, currentQuestionLevel, showLevelMessage, nextQuestion };
+};
+
+const QuestionPage = () => {
+  const questions = useQuestionsStore(state => state.questions);
+  const { currentQuestionContent, currentQuestionLevel, showLevelMessage, nextQuestion } = useCurrentQuestion(questions);
 
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
+      <div className='mb-20 sm:mb-24'>
+        <StepBar QuestionLevel={currentQuestionLevel} />
+      </div>
       <main className="flex flex-col items-center p-4">
-        <div className='mb-20 sm:mb-24'>
-          <StepBar QuestionLevel={currentQuestionLevel} />
-        </div>
-        <div className='relative md:w-4/6 w-full flex justify-center'>
-          {/* <Envelope onClick={handleEnvelopeClick} /> */}
-          <QuestionCard question={currentQuestionContent} />
-          <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
-            <Button onClick={nextQuestion} className='bg-baseColor hover:bg-baseColor'>次の問題</Button>
+        {showLevelMessage ? (
+          <div className='text-3xl font-bold my-10'>レベル{currentQuestionLevel}</div>
+        ) : (
+          <div className='relative md:w-4/6 w-full flex justify-center'>
+            <QuestionCard question={currentQuestionContent} />
+            <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
+              <Button onClick={nextQuestion} className='bg-baseColor hover:bg-baseColor'>次の問題</Button>
+            </div>
           </div>
-        </div>
+        )}
       </main>
     </div>
   );
