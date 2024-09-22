@@ -95,7 +95,7 @@ function CourseSelectionDialog() {
               </label>
             </fieldset>
           </div>
-          <DialogFooter className="flex justify-center items-center">
+          <DialogFooter className="flex justify-center items-center sm:justify-center">
             <DialogClose asChild>
               <Button type="button" className=" w-3/4 text-sm bg-baseColor hover:bg-baseColor" onClick={handleButtonClick}>
                 始める
