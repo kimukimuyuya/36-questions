@@ -1,14 +1,19 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import CourseSelectionDialog from '@/components/ CourseSelectionDialog';
+import { SeoHead } from '@/components/SeoHead';
 
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-baseColor">
-      <Head>
-        <title>36の質問 - ランディングページ</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SeoHead
+        title={"36の質問"}
+        titleTemplate={"関係性を深める話題提供アプリ"}
+        description={"36の質問は、関係性を深めるためのアプリ。3段階に分かれた質問で、相手の価値観を徐々に知っていきます。"}
+        keyWords={"36の質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
+        ogType={"website"}
+	      // TODO:public/ に1200x630pxの画像を用意
+        imgUrl={'/next.svg'} 
+      />
 
       <main className="flex flex-col items-center justify-center text-center bg-bgColor w-full">
         <div className='w-full overflow-hidden'>
