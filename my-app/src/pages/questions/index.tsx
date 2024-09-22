@@ -8,34 +8,54 @@ import Envelope from '@/components/Envelope';
 import StepBar from '../../components/StepBar';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
+import router from 'next/router';
 import useQuestionsStore from '@/store/questionsStore';
+import { Button } from '@/components/ui/button';
+import { routeModule } from 'next/dist/build/templates/app-page';
+
+type Question = {
+  id: number;
+  content: string;
+  level: number;
+};
 
 const QuestionPage = () => {
-  const router = useRouter();
-  const questions = useQuestionsStore(state => state.questions);
+  const questions: Question[] = useQuestionsStore(state => state.questions);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-  useEffect(() => {
-    if (questions.length === 0) {
-      // データがない場合はリダイレクトするなどの処理
-      router.push('/');
-    }
-  }, [questions, router]);
+  const [currentQuestionLevel, setCurrentQuestionLevel] = useState<number>(questions[0].level);
 
   const nextQuestion = () => {
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    const nextIndex = currentQuestionIndex + 1;
+    if (nextIndex < questions.length) {
+      setCurrentQuestionIndex(nextIndex);
+      // 次の問題が現在のレベルと異なる場合に更新する
+      if (questions[nextIndex].level !== currentQuestionLevel) {
+        setCurrentQuestionLevel(questions[nextIndex].level);
+      }
+    } else {
+      router.push('/survey');
+    }
   };
 
-  if (questions.length === 0) return <div>Loading...</div>;
+  const handleEnvelopeClick = () => {
+    console.log('handleEnvelopeClick');
+  }
 
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
-      <div>
-        <h1>質問</h1>
-        <p>{questions[currentQuestionIndex]?.content}</p>
-        <button onClick={nextQuestion}>次へ</button>
-      </div>
+      <main className="flex flex-col items-center p-4">
+        <div className='mb-20 sm:mb-24'>
+          <StepBar QuestionLevel={currentQuestionLevel} />
+        </div>
+        <div className='relative md:w-4/6 w-full flex justify-center'>
+          {/* <Envelope onClick={handleEnvelopeClick} /> */}
+          <QuestionCard question={questions[currentQuestionIndex].content} />
+          <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
+            <Button onClick={nextQuestion} className='bg-baseColor hover:bg-baseColor'>次の問題</Button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
