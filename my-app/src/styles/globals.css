@@ -149,7 +149,7 @@ body {
 
 /* loading画面のレイアウト */
 .loader  {
-  animation: rotate 1s infinite;  
+  animation: rotate 2s infinite;  
   height: 75px;
   width: 75px;
 }
@@ -163,13 +163,13 @@ body {
   width: 30px;
 }
 .loader:before {
-  animation: ball1 1s infinite;  
+  animation: ball1 2s infinite;  
   background-color: #C7243A;
   box-shadow: 45px 0 0 #DA6272;
   margin-bottom: 15px;
 }
 .loader:after {
-  animation: ball2 1s infinite; 
+  animation: ball2 2s infinite; 
   background-color: #ECACB5;
   box-shadow: 45px 0 0 #F6D4D8;
 }
