@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   
   try {
-    const { content } = req.body;
+    const { impressions, content } = req.body;
 
     // データベース接続の確認
     await prisma.$connect();
@@ -19,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     await prisma.survey_results.create({
       data: {
+        impressions,
         content,
       },
     });
