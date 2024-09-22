@@ -22,10 +22,9 @@ const useCurrentQuestion = (questions: Question[]) => {
 
   useEffect(() => {
     if (questions.length > 0) {
-      // setIsLevelChange(true);
       setTimeout(() => setIsLevelChange(false), 2000);
     }
-  }, []);
+  }, [questions]);
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -59,48 +58,51 @@ const QuestionPage = () => {
   const questions = useQuestionsStore(state => state.questions);
   const { currentQuestionContent, currentQuestionLevel, isLevelChange, showEndAnimation, nextQuestion } = useCurrentQuestion(questions);
 
+  const renderEndAnimation = () => (
+    <div className="flex flex-col items-center justify-center animate__animated animate__fadeIn">
+      <div className='text-center mx-8 text-baseColor mt-40 text-md'>
+        <p className="mb-8">質問は以上となります。</p>
+        <p className='mb-3'>最後にアンケートに回答いただけますと</p>
+        <p>幸いです。</p>
+      </div>
+    </div>
+  );
+  
+  const renderQuestionContent = () => (
+    <>
+      <div className='mb-20 sm:mb-24'>
+        <StepBar QuestionLevel={currentQuestionLevel} />
+      </div>
+      <main className="flex flex-col items-center p-4">
+        {isLevelChange ? (
+          <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn 
+          ${currentQuestionLevel === 1 ? 'text-secondaryColor' : currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}`}>
+            レベル{currentQuestionLevel}
+          </div>
+        ) : (
+          <div className='relative md:w-4/6 w-full flex justify-center animate__animated animate__fadeIn '>
+            <QuestionCard question={currentQuestionContent} />
+            <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
+              <Button
+                onClick={nextQuestion}
+                className='bg-baseColor hover:bg-baseColor'
+              >
+                次の問題
+              </Button>
+            </div>
+          </div>
+        )}
+      </main>
+    </>
+  );
+  
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
-      {showEndAnimation ? (
-        // 最後の質問が終わった後の画面
-        <div className="flex flex-col items-center justify-center animate__animated animate__fadeIn">
-          <div className='text-center mx-8 text-baseColor mt-40 text-md'>
-            <p className="mb-8">質問は以上となります。</p>
-            <p className='mb-3'>最後にアンケートに回答いただけますと</p>
-            <p>幸いです。</p>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className='mb-20 sm:mb-24'>
-            <StepBar QuestionLevel={currentQuestionLevel} />
-          </div>
-          <main className="flex flex-col items-center p-4">
-            {isLevelChange ? (
-              <div className={`text-3xl font-bold my-10 animate__animated animate__fadeIn 
-              ${currentQuestionLevel === 1 ? 'text-secondaryColor' : currentQuestionLevel === 2 ? 'text-subColor' : 'text-baseColor'}
-              `}>
-                レベル{currentQuestionLevel}
-              </div>
-            ) : (
-              <div className='relative md:w-4/6 w-full flex justify-center'>
-                <QuestionCard question={currentQuestionContent} />
-                <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
-                  <Button
-                    onClick={nextQuestion}
-                    className='bg-baseColor hover:bg-baseColor'
-                  >
-                    次の問題
-                  </Button>
-                </div>
-              </div>
-            )}
-          </main>
-        </>
-      )}
+      {showEndAnimation ? renderEndAnimation() : renderQuestionContent()}
     </div>
   );
+  
 };
 
 export default QuestionPage;
