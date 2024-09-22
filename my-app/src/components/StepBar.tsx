@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StepBar = ({ QuestionLevel }: { QuestionLevel: string }) => {
+const StepBar = ({ QuestionLevel }: { QuestionLevel: number }) => {
   const currentLevel = Number(QuestionLevel);
   const levels = [
     { number: 1, text: 'level1', color: 'bg-red-500' },
