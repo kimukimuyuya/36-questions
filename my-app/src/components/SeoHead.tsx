@@ -35,6 +35,7 @@ export const SeoHead = ({
       <link href={Url} rel="canonical" />
       <meta name="description" content={description} />
       <meta name="keywords" content={keyWords} />
+      <meta name="robots" content="index, follow" />
       <meta name="twitter:card" content={"summary_large_image"} />
       <meta name="twitter:title" content="36の質問" />
       <meta name="twitter:description" content="関係性を深める話題提供アプリ" />
