@@ -61,7 +61,7 @@ const Home = () => {
             <div className="flex items-center justify-center mt-8 mb-12">
               <Image
                 src="/bride.png"
-                alt="新婦"
+                alt="白いドレスを着た新婦のイラスト"
                 width={150}
                 height={150}
                 priority={true}
@@ -69,7 +69,7 @@ const Home = () => {
               />
               <Image
                 src="/bridegroom.png"
-                alt="新郎"
+                alt="グリーンのタキシードを着た新郎のイラスト"
                 width={150}
                 height={150}
                 priority={true}
