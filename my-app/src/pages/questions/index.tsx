@@ -80,8 +80,10 @@ const QuestionPage = () => {
             レベル{currentQuestionLevel}
           </div>
         ) : (
-          <div className='relative md:w-4/6 w-full flex justify-center animate__animated animate__fadeIn '>
-            <QuestionCard question={currentQuestionContent} />
+          <div className='relative md:w-4/6 w-full flex justify-center'>
+            <div className='animate__animated animate__fadeInRight w-full h-full'>
+              <QuestionCard question={currentQuestionContent}/> 
+            </div>
             <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
               <Button
                 onClick={nextQuestion}
