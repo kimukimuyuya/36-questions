@@ -2,12 +2,13 @@ import Header from '../../components/Header';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import router from 'next/router';
+import 'animate.css'
 
 const Thanks = () => {
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
-      <main className='flex flex-col items-center pt-12 justify-center'>
+      <main className='flex flex-col items-center pt-12 justify-center animate__animated animate__fadeIn'>
         <div className='text-center space-y-8 mx-8 mb-12 text-baseColor'>
           <p className='text-md font-semibold'>
             ご回答いただきありがとうございます。
