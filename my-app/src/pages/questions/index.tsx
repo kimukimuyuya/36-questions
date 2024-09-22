@@ -11,7 +11,6 @@ import { useRouter } from 'next/router';
 import router from 'next/router';
 import useQuestionsStore from '@/store/questionsStore';
 import { Button } from '@/components/ui/button';
-import { routeModule } from 'next/dist/build/templates/app-page';
 
 type Question = {
   id: number;
