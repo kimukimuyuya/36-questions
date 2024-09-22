@@ -64,13 +64,7 @@ const QuestionPage = () => {
             <div className='absolute top-40 flex items-center justify-around w-full mt-12'>
             <Button
               onClick={nextQuestion}
-              className={`${
-                currentQuestionLevel === 1 
-                  ? 'bg-secondaryColor hover:bg-subColor' 
-                  : currentQuestionLevel === 2 
-                    ? 'bg-subColor hover:bg-baseColor' 
-                    : 'bg-baseColor hover:bg-baseColor'
-              }`}
+              className='bg-baseColor hover:bg-baseColor'
             >
               次の問題
             </Button>
