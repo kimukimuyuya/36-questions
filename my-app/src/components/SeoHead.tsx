@@ -39,6 +39,8 @@ export const SeoHead = ({
       <meta name="keywords" content={keyWords} />
       <meta name="robots" content="index, follow" />
       <meta name="twitter:card" content={"summary_large_image"} />
+      <meta name="twitter:site" content="@kimu26sotsu" />
+      <meta name="twitter:creator" content="@kimu26sotsu" />
       <meta name="twitter:title" content="36の質問" />
       <meta name="twitter:description" content="関係性を深める話題提供アプリ" />
       <meta name="twitter:image" content={absoluteImgPath} />
