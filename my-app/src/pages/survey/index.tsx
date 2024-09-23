@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import 'animate.css'
+import { SeoHead } from '@/components/SeoHead';
 
 const formSchema = z.object({
   impressions: z.string().min(1, {
@@ -58,6 +59,14 @@ const Survey = () => {
 
   return (
     <>
+      <SeoHead
+        title={"36の質問"}
+        titleTemplate={"アンケート回答画面"}
+        description={"36の質問を終えて、このアプリケーションの改善点や、おすすめの話題を共有してもらうためのアンケートページです"}
+        keyWords={"アンケート, 36の質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
+        ogType={"website"}
+        imgUrl={'/36Q.png'}
+      />
       { loading && (
         <div className='fixed top-0 left-0 z-50 w-screen h-screen flex items-center justify-center bg-bgColor'>
           <div className="loader"></div>
