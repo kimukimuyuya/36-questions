@@ -6,6 +6,7 @@ import router from 'next/router';
 import useQuestionsStore from '@/store/questionsStore';
 import { Button } from '@/components/ui/button';
 import 'animate.css'
+import { SeoHead } from '@/components/SeoHead';
 
 type Question = {
   id: number;
@@ -51,12 +52,12 @@ const useCurrentQuestion = (questions: Question[]) => {
     }
   };
 
-  return { currentQuestionContent, currentQuestionLevel, isLevelChange, showEndAnimation, nextQuestion };
+  return { currentQuestionContent, currentQuestionLevel, currentQuestionIndex, isLevelChange, showEndAnimation, nextQuestion };
 };
 
 const QuestionPage = () => {
   const questions = useQuestionsStore(state => state.questions);
-  const { currentQuestionContent, currentQuestionLevel, isLevelChange, showEndAnimation, nextQuestion } = useCurrentQuestion(questions);
+  const { currentQuestionContent, currentQuestionLevel, currentQuestionIndex, isLevelChange, showEndAnimation, nextQuestion } = useCurrentQuestion(questions);
 
   const renderEndAnimation = () => (
     <div className="flex flex-col items-center justify-center animate__animated animate__fadeIn">
@@ -102,6 +103,14 @@ const QuestionPage = () => {
   return (
     <div className='min-h-screen bg-bgColor'>
       <Header />
+      <SeoHead
+        title={`36の質問`}
+        titleTemplate={`質問レベル${currentQuestionLevel}`}
+        description={`${currentQuestionIndex}問目の質問は、${currentQuestionContent}です`}
+        keyWords={"質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
+        ogType={"article"}
+        imgUrl={'/next.svg'} // 適切な画像を設定
+      />
       {showEndAnimation ? renderEndAnimation() : renderQuestionContent()}
     </div>
   );
