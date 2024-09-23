@@ -61,7 +61,7 @@ const Survey = () => {
     <>
       <SeoHead
         title={"36の質問"}
-        titleTemplate={"アンケート回答画面"}
+        titleTemplate={"アンケート回答"}
         description={"36の質問を終えて、このアプリケーションの改善点や、おすすめの話題を共有してもらうためのアンケートページです"}
         keyWords={"アンケート, 36の質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
         ogType={"website"}

@@ -15,6 +15,8 @@ export const SeoHead = ({
   const siteUrl = `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}`;  
   const Url = `${siteUrl}${router.asPath}`;
   const siteTitle = `${title} - ${titleTemplate}`;
+  // imageUrlを絶対パスにする
+  const absoluteImgPath = `${siteUrl}${imgUrl}`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -22,7 +24,7 @@ export const SeoHead = ({
     "name": "36の質問",
     "description": "関係性を深める、話題提供アプリ",
     "url": Url,
-    "image": imgUrl,
+    "image": absoluteImgPath,
     "applicationCategory": "Social",
     "operatingSystem": "Web",
     "additionalType": "https://schema.org/Application"
@@ -39,8 +41,8 @@ export const SeoHead = ({
       <meta name="twitter:card" content={"summary_large_image"} />
       <meta name="twitter:title" content="36の質問" />
       <meta name="twitter:description" content="関係性を深める話題提供アプリ" />
-      <meta name="twitter:image" content={imgUrl} />
-      <meta property="og:image" content={imgUrl} />
+      <meta name="twitter:image" content={absoluteImgPath} />
+      <meta property="og:image" content={absoluteImgPath} />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:url" content={Url} />
       <meta property="og:description" content={description} />
