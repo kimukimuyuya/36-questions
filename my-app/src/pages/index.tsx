@@ -13,7 +13,7 @@ const Home = () => {
         keyWords={"36の質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
         ogType={"website"}
 	      // TODO:public/ に1200x630pxの画像を用意
-        imgUrl={'/next.svg'} 
+        imgUrl={'/36Q.png'} 
       />
 
       <main className="flex flex-col items-center justify-center text-center bg-bgColor w-full">

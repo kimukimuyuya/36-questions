@@ -109,7 +109,7 @@ const QuestionPage = () => {
         description={`${currentQuestionIndex}問目の質問は、${currentQuestionContent}です`}
         keyWords={"質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
         ogType={"article"}
-        imgUrl={'/next.svg'} // 適切な画像を設定
+        imgUrl={'/36Q.png'} // 適切な画像を設定
       />
       {showEndAnimation ? renderEndAnimation() : renderQuestionContent()}
     </div>

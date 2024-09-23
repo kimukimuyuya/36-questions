@@ -39,9 +39,7 @@ export const SeoHead = ({
       <meta name="twitter:card" content={"summary_large_image"} />
       <meta name="twitter:title" content="36の質問" />
       <meta name="twitter:description" content="関係性を深める話題提供アプリ" />
-      {/* TODO:public/に1200x628pxの画像を用意する */}
       <meta name="twitter:image" content={imgUrl} />
-      {/* TODO:public/に1200x628pxの画像を用意する */}
       <meta property="og:image" content={imgUrl} />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:url" content={Url} />

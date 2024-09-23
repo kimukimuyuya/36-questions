@@ -65,7 +65,7 @@ const Survey = () => {
         description={"36の質問を終えて、このアプリケーションの改善点や、おすすめの話題を共有してもらうためのアンケートページです"}
         keyWords={"アンケート, 36の質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
         ogType={"website"}
-        imgUrl={'/next.svg'}
+        imgUrl={'/36Q.png'}
       />
       { loading && (
         <div className='fixed top-0 left-0 z-50 w-screen h-screen flex items-center justify-center bg-bgColor'>
