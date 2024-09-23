@@ -106,10 +106,10 @@ const QuestionPage = () => {
       <SeoHead
         title={`36の質問`}
         titleTemplate={`質問レベル${currentQuestionLevel}`}
-        description={`${currentQuestionIndex}問目の質問は、${currentQuestionContent}です`}
+        description={`36の質問は、関係性を深めるためのアプリです。このページでは、3段階に分かれた質問を提供しています。`}
         keyWords={"質問, 関係性, コミュニケーション, パートナー, 友人, 恋人, カップル, 対話, 話題, 提供"}
         ogType={"article"}
-        imgUrl={'/36Q.png'} // 適切な画像を設定
+        imgUrl={'/36Q.png'}
       />
       {showEndAnimation ? renderEndAnimation() : renderQuestionContent()}
     </div>
