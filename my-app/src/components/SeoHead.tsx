@@ -49,7 +49,7 @@ export const SeoHead = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <link rel="icon" href="/heart_icon.png" />
-      <link rel="apple-touch-icon" href="/heart_icon.png" sizes="180x180" />
+      <link rel="apple-touch-icon" href="/heart180.png" sizes="180x180" />
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
