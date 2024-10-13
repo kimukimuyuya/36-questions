@@ -17,7 +17,6 @@ export const SeoHead = ({
   const siteTitle = `${title} - ${titleTemplate}`;
   // imageUrlを絶対パスにする
   const absoluteImgPath = `${siteUrl}${imgUrl}`;
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -49,8 +48,7 @@ export const SeoHead = ({
       <meta property="og:url" content={Url} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      {/* TOD:アイコンも用意したい */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/heart_icon.png" />
 
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
