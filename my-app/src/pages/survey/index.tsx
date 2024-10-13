@@ -103,7 +103,7 @@ const Survey = () => {
                         <FormLabel className='text-md'>2. 貴方が思う「こんな話題なら関係性が深まる」を教えてください</FormLabel>
                         <div>
                           <FormControl>
-                            <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="ex. 人生で一番しんどかった出来事は?" {...field} />
+                            <Input className='bg-white mt-4 p-4  focus-visible:ring-subColor' placeholder="ex. 人生で一番つらかった出来事は?" {...field} />
                           </FormControl>
                         </div>
                         <FormMessage />
